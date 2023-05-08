@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://nombre-de-usuario.github.io/nombre-del-repositorio",
+  "homepage": "https://vittoopugliese.github.io/breakingBadQuotes-",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
