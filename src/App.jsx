@@ -9,7 +9,7 @@ export const App = () => {
   );
 
   return (
-    <>
+    <div className="mt-2 container">
       <h2>breakingBad Quotes!</h2>
       <hr />
 
@@ -24,7 +24,7 @@ export const App = () => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
