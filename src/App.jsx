@@ -1,7 +1,7 @@
-import {useFetch} from "./hooks/useFetch";
-import {useCounter} from "./hooks/useCounter";
+import { useFetch, useCounter } from "./hooks";
+import { Spinner, Quote } from "./components";
 
-function App() {
+export const App = () => {
   const {counter, sum} = useCounter(1);
 
   const {data, isLoading} = useFetch(
@@ -9,37 +9,23 @@ function App() {
   );
 
   return (
-    <div className="mt-2 container">
+    <>
       <h2>breakingBad Quotes!</h2>
       <hr />
 
       {isLoading ? (
-        <div className="lds-ring">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <Spinner />
       ) : (
-        data.map((q, i) => {
-          if (i < 1) {
-            return (
-              <blockquote className="blockquote text-right" key={q.author + i}>
-                <p className="mb-1">{q.quote}</p>
-                <footer className="blockquote-footer mt-2">{q.author}</footer>
-              </blockquote>
-            );
-          }
-        })
-      )}
+        <div>
+          <Quote data={data} />
 
-      {!isLoading && (
-        <button className="btn btn-dark" onClick={() => sum()}>
-          Next quote
-        </button>
+          <button className="btn btn-dark" onClick={() => sum()}>
+            Next quote
+          </button>
+        </div>
       )}
-    </div>
+    </>
   );
-}
+};
 
 export default App;
